@@ -1,5 +1,3 @@
-# QuranOlympiad2025
-
 <div align="center">
 
 <h1>কুরআন অলিম্পিয়াড ২০২৬</h1>
