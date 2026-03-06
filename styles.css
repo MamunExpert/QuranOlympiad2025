@@ -138,7 +138,7 @@ body::before {
 }
 
 .question {
-  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 2rem);
   line-height: 1.2;
   margin: 0 30px;
   color: #e0e7ff;
@@ -283,4 +283,5 @@ body::before {
   z-index: 0;
 
 }
+
 
