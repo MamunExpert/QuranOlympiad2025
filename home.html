@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quran Olympiad 2026</title>
+
+  <!-- ইকুশে লাল সবুজ ফন্ট -->
+  <link rel="preload" as="font" type="font/woff2" href="https://banglawebfonts.pages.dev/fonts/ekushey-lal-sabuj/ekushey-lal-sabuj-regular.woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" type="font/woff2" href="https://banglawebfonts.pages.dev/fonts/ekushey-lal-sabuj/ekushey-lal-sabuj-bold.woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://banglawebfonts.pages.dev/css/ekushey-lal-sabuj.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700;900&family=Amiri:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- হোম পেজ -->
+  <div id="home">
+    <h1 class="hero-title">QURAN OLYMPIAD 2026</h1>
+    <p class="hero-subtitle">পারা ২০: সূরা ৭৮ থেকে ১১৪</p>
+    <button class="btn-play" onclick="startQuiz()">কুইজ শুরু করুন</button>
+  </div>
+
+  <!-- কুইজ পেজ -->
+  <div id="quiz" class="hidden">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+      </div>
+      <div class="progress-count" id="progressCount">1 / 159</div>
+    </div>
+    
+    <div class="question" id="question"></div>
+
+    <div class="hint-container">
+      <button class="hint-btn" id="hintBtn">হিন্ট দেখুন</button>
+      <div class="hint-text" id="hintText"></div>
+    </div>
+
+    <div class="options" id="options"></div>
+
+    <div class="explanation" id="explanation"></div>
+
+    <div class="button-group">
+      <button class="btn btn-primary" id="nextBtn" disabled onclick="nextQuestion()">পরবর্তী</button>
+      <button class="btn btn-result" id="resultBtn" style="display:none;" onclick="showResult()">রেজাল্ট দেখুন</button>
+    </div>
+  </div>
+
+  <!-- রেজাল্ট পেজ -->
+  <div id="result" class="hidden">
+    <div class="result-title">আপনার ফলাফল</div>
+    
+    <div class="score-circle" id="finalScore">0%</div>
+
+    <div class="stats">
+      <div class="stat-item stat-correct">
+        <div class="stat-number" id="correctCount">0</div>
+        <div class="stat-label">সঠিক</div>
+      </div>
+      <div class="stat-item stat-wrong">
+        <div class="stat-number" id="wrongCount">0</div>
+        <div class="stat-label">ভুল</div>
+      </div>
+    </div>
+
+    <div class="button-group" style="margin-top: 40px;">
+      <button class="btn btn-primary" onclick="restart()">আবার খেলুন</button>
+      <button class="btn btn-secondary" onclick="location.reload()">হোমে ফিরুন</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
