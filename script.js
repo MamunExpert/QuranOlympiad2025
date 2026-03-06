@@ -10,6 +10,7 @@ const questions = [
 
 let current = 0;
 let score = 0;
+let attempted = 0; 
 let correctCount = 0;
 let wrongCount = 0;
 let answered = false;
@@ -74,6 +75,7 @@ function loadQuestion() {
 function selectAnswer(idx, q) {
   if (answered) return;
   answered = true;
+   attempted++;
 
   const opts = document.querySelectorAll('.option');
   opts[q.correct].classList.add('correct');
@@ -82,12 +84,11 @@ function selectAnswer(idx, q) {
   clicked.classList.add('selected');
 
   if (idx === q.correct) {
-    score += 100;
     correctCount++;
+    score += 1; // সঠিক = +১
   } else {
-    clicked.classList.add('wrong');
-    score -= 0.5;
     wrongCount++;
+    score -= 0.05; 
 
     const exp = document.getElementById('explanation');
     exp.textContent = q.explanation || "সঠিক উত্তর: " + q.options[q.correct];
@@ -96,6 +97,8 @@ function selectAnswer(idx, q) {
 
   document.getElementById('nextBtn').disabled = false;
 }
+
+
 
 function nextQuestion() {
   current++;
@@ -109,12 +112,20 @@ function updateProgress() {
   document.getElementById('progressCount').textContent = (current + 1) + " / " + shuffled.length;
 }
 
+
+
 function showResult() {
   document.getElementById('quiz').classList.add('hidden');
   document.getElementById('result').classList.remove('hidden');
 
-  const percentage = Math.round((score / (shuffled.length * 100)) * 100);
-  document.getElementById('finalScore').textContent = percentage + "%";
+  let finalPercentage = 0;
+  if (attempted > 0) {
+    finalPercentage = (score / attempted) * 100;
+  }
+  if (finalPercentage < 0) finalPercentage = 0;
+  finalPercentage = finalPercentage.toFixed(2);
+
+  document.getElementById('finalScore').textContent = finalPercentage + "%";
   document.getElementById('correctCount').textContent = correctCount;
   document.getElementById('wrongCount').textContent = wrongCount;
 }
@@ -122,6 +133,6 @@ function showResult() {
 function restart() {
   document.getElementById('result').classList.add('hidden');
   startQuiz();
-
 }
+
 
