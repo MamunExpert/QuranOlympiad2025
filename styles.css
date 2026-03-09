@@ -261,9 +261,9 @@ body::before {
 #home::before { top: 20px; }
 #home::after { bottom: 20px; }
 
-/* কুইজ + রেজাল্টে হালকা লণ্ঠন গ্লো */
+/* কুইজ + রেজাল্টে হালকা গ্লো */
 #quiz::before, #result::before {
-  content: '🪔';
+  content: '✨';
   position: absolute;
   font-size: 80px;
   opacity: 0.08;
@@ -283,6 +283,7 @@ body::before {
   z-index: 0;
 
 }
+
 
 
 
